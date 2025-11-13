@@ -1,21 +1,21 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html {
-  block-size: 100%;
+    block-size: 100%;
 }
 
 .page {
-  inline-size: 1200px;
-  block-size: 100%;
-  margin: auto;
-  color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
-  font-size: 18px;
-  background-color: #1b1919;
+    inline-size: 1200px;
+    block-size: 100%;
+    margin: auto;
+    color: #fff;
+    font-family: "Fira Sans Condensed", sans-serif;
+    font-size: 18px;
+    background-color: #1b1919;
 }
 
 h1,
@@ -28,24 +28,239 @@ ol,
 li,
 blockquote,
 fieldset {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 ul,
 ol {
-  list-style: none;
+    list-style: none;
 }
 
 /* Кастомный скроллбар */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 4px;
+    width: 4px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: rgb(217 217 217 / 10%);
+    background: rgb(217 217 217 / 10%);
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #D9D9D9;
+    background-color: #d9d9d9;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    padding: 0 30px;
+    min-block-size: 100vh;
+}
+.content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 534px;
+    gap: 30px;
+    position: relative;
+    margin: auto 0;
+}
+.result {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: auto;
+    width: 711px;
+    gap: 16px;
+}
+.content__details {
+    width: 400px;
+}
+.content__list-container {
+    overflow-y: auto;
+    position: relative;
+    max-block-size: 298px;
+    height: 100%;
+}
+.title {
+    font-family: Oswald, sans-serif;
+    font-weight: 700;
+    font-size: 75px;
+    line-height: 0.94em;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+    & .content__accent {
+        color: #545050;
+    }
+}
+.content__list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 2px;
+    outline-offset: 1px;
+    & .content__list-item {
+        &:active {
+            background: #545050;
+        }
+        &:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        &:focus-visible {
+            outline: 1px solid white;
+        }
+        & .content__video-card {
+            display: flex;
+            height: 103px;
+
+            & .content__video-card-description-container {
+                width: 50%;
+                font-family: "Oswald", sans-serif;
+                color: white;
+
+                & .content__video-card-title {
+                    font-size: 30px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    line-height: 1em;
+                    overflow: clip;
+                    text-overflow: ellipsis;
+                }
+
+                & .content__video-card-description {
+                    font-family: "Fira Sans Condensed", sans-serif;
+                    margin-top: 6px;
+                    font-size: 18px;
+                    line-height: 16.2px;
+                    font-weight: 400;
+                }
+            }
+            & .content__video-card-thumbnail {
+                width: 50%;
+            }
+        }
+    }
+    & + .more-button {
+        width: 100%;
+    }
+}
+
+.result__video-container {
+    margin-top: auto;
+    width: 100%;
+    position: relative;
+
+    & .result__video {
+        width: 100%;
+    }
+}
+.search-form {
+    display: flex;
+    place-items: end;
+    width: 100%;
+    gap: 40px;
+
+    & .search-form__fieldset {
+        border: 0;
+    }
+    & .search-form__fieldset-title {
+        font-family: "Fira Sans Condensed";
+        font-size: 18px;
+        font-weight: 400;
+    }
+}
+.visually-hidden {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+a {
+    text-decoration: none;
+}
+button {
+    font-family: "Fira Sans Condensed", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+
+    outline: none;
+    outline-offset: 1px;
+    background: transparent;
+    border: 1px solid white;
+    padding: 6px 70px;
+    height: fit-content;
+
+    &:hover {
+        text-decoration: underline;
+    }
+    &:active {
+        background-color: #545050;
+    }
+    &:focus-visible {
+        outline: 1px solid white;
+    }
+}
+.search-form__textfield {
+    font-family: "Fira Sans Condensed", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+
+    background: transparent;
+
+    outline: none;
+    outline-offset: 1px;
+
+    border-right: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+
+    &:active {
+        border: 1px solid white;
+    }
+    &:hover {
+        cursor: text;
+    }
+    &:focus-visible {
+        outline: 1px solid white;
+    }
+}
+.search-form__checkbox-list {
+    display: flex;
+    gap: 15px;
+    & .search-form__label {
+        display: inline-flex;
+        gap: 5px;
+        place-items: center;
+        cursor: pointer;
+        user-select: none;
+        &:hover {
+            text-decoration: underline;
+        }
+        &:focus-visible {
+            outline: 1px solid white;
+        }
+        &:active > .search-form__pseudo-checkbox {
+            background-color: white;
+            padding: 1px;
+        }
+    }
+}
+.search-form__pseudo-checkbox {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    outline-offset: 1px;
+    padding: 1px;
+    border: 1px solid white;
 }

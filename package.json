@@ -1,0 +1,16 @@
+{
+  "name": "posmotri-v-okno-ad",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "prettier": "^3.6.2",
+    "vite": "^7.2.2"
+  }
+}
